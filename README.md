@@ -39,3 +39,8 @@ NFT minting
 
 Buying NFT
 ![NFT Buying](./nftbuyspec.png)
+
+Setting Price of NFT  
+![NFT SetPrice](./nftsetpricespec.png)
+
+This is an interesting example because it obviously needs the transaction to be signed by the "pkh". We specify that under the diagram.

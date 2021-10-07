@@ -1,0 +1,29 @@
+digraph SetPrice {
+  rankdir=LR;
+  node [shape="record"];
+
+  // inputs
+  Nft_In [color=red,label=
+    "{{
+    Nft Validator
+    | SetPrice newPrice
+    | [owner=pkh]
+    |<v1> $NFT=1
+    |<vr> ...
+    }}"
+  ];
+
+  // outputs
+  Nft_Out [label=
+    "{{
+    Nft Validator
+    | []
+    | <v1> $NFT=1
+    | <vr> ...
+    }}"
+  ];
+
+  // value flow
+  Nft_In:v1 -> Nft_Out:v1
+  Nft_In:vr -> Nft_Out:vr
+}
