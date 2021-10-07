@@ -38,12 +38,13 @@ NFT endpoint FSM
 ![Nft SM](./nftstates.png)
 
 NFT minting  
-![NFT Minting](./nftspec.png)
+![NFT Minting](./nftspec.png)    
+%startParams is provided by the caller and must have authorShare in [0,1]
+$NFT(utxo) has the TokenName be the sha256 of the actual asset it represents
 
 Buying NFT
 ![NFT Buying](./nftbuyspec.png)
 
 Setting Price of NFT  
-![NFT SetPrice](./nftsetpricespec.png)
-
-This is an interesting example because it obviously needs the transaction to be signed by the "pkh". We specify that under the diagram.
+![NFT SetPrice](./nftsetpricespec.png)   
+The transaction must be signed by pkh

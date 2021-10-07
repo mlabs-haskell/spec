@@ -17,7 +17,7 @@ digraph SetPrice {
   Nft_Out [label=
     "{{
     Nft Validator
-    | []
+    | [price=newPrice]
     | <v1> $NFT=1
     | <vr> ...
     }}"
