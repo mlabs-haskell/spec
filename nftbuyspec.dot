@@ -1,0 +1,46 @@
+digraph Buy {
+  rankdir=LR;
+  node [shape="record"];
+
+  // inputs
+  Nft_In [color=red,label=
+    "{{
+    Nft Validator
+    | BuyAct (paid \>= n) newPrice
+    | [owner=pkh_old,price=n,authorShare=1/m]
+    |<v1> $NFT=1
+    |<vr> ...
+    }}"
+  ];
+  Buyer_In [label=
+    "{{
+    PubKeyHash pkh
+    |<v1> $ADA=paid
+    |<vr> ...
+    }}"
+  ];
+
+  // outputs
+  Nft_Out [label=
+    "{{
+    Nft Validator
+    | [owner=pkh,price=newPrice]
+    | <v1> $NFT=1
+    | <v2> $ADA=paid/m
+    | <vr> ...
+    }}"
+  ];
+  Pay_Out [label=
+    "{{
+    PubKeyHash phk_old
+    |<v1>$ADA=paid-paid/m
+    |<vr> ...
+    }}"
+  ];
+
+  // value flow
+  Nft_In:v1 -> Nft_Out:v1
+  Nft_In:vr -> Nft_Out:vr
+  Buyer_In:v1 -> Nft_Out:v2
+  Buyer_In:v1 -> Pay_Out:v1
+}

@@ -1,0 +1,27 @@
+digraph nft {
+  rankdir=LR;
+  node [shape="record"];
+
+  // inputs
+  Minted [color=red,label="Minted",shape="oval"]  
+  Utxo_In [label=
+    "{{
+    @TxOutRef=utxo
+    |[...] 
+    |<vr> ... 
+    }}"
+  ];
+
+  // outputs
+  Nft_Out [label=
+    "{{
+    Nft Validator
+    | %startParams
+    |<v1> $NFT(utxo)
+    |<vr> ...
+    }}"
+  ];
+
+  // value flow
+  Minted -> Nft_Out:v1
+}
