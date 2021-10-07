@@ -1,0 +1,8 @@
+digraph NftStates {
+  rankdir=LR;
+
+  Start [peripheries=2]
+  Working [peripheries=2]
+  Start -> Working [label=CreateNft]
+  Working -> Working [label="Buy,SetPrice"]
+}

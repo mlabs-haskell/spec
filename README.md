@@ -34,6 +34,9 @@ Datums flow from the utxo of the same validator to one of the same validator and
 
 Here's some more examples:
 
+NFT endpoint FSM   
+![Nft SM](./nftstates.png)
+
 NFT minting  
 ![NFT Minting](./nftspec.png)
 
