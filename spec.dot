@@ -1,0 +1,54 @@
+digraph Spec {
+  rankdir=LR;
+  node [shape="record"];
+
+  // inputs
+  Minted [label="Minted",shape="oval"]  
+  VAlice_In [color=red, label=
+    "{{
+    Validator Alice 
+    |RedQueenCall n
+    |[...] 
+    |<v1> $CHESHIRE=1
+    |<v2> $CAT=k
+    |<vr> ... 
+    }}"
+  ];
+  P1_In [label=
+    "{{
+    PubKeyHash Caroll
+    |[...] 
+    |<vr> ... 
+    }}"
+  ];
+
+  // outputs
+  Burned [label="Burned",shape="oval"]
+  VAlice_Out [label=
+    "{{
+    Validator Alice 
+    |[spentCAT+n,names+\"Lewis\"]
+    |<v1> $CATS=n
+    |<v2> $CAT=k-n 
+    |<v3> $ALICE_NFT=1
+    }}"
+  ];
+  
+  VGrimm_Out [label=
+    "{{
+    Validator Grimm 
+    |%InitialGrimmDatum
+    |<v1> $CAT=n 
+    |<v2> $HATTER=5
+    |<vr> ...
+    }}"
+  ];
+
+  // value flow
+  VAlice_In:v1 -> Burned
+  VAlice_In:v2 -> VGrimm_Out:v1
+  VAlice_In:v2 -> VAlice_Out:v2
+  Minted -> VAlice_Out:v1
+  VAlice_In:vr -> VAlice_Out:v3 
+  P1_In:vr -> VGrimm_Out:v2 
+}
